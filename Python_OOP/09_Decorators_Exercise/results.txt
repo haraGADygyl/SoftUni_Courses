@@ -1,0 +1,6 @@
+Function 4 was add called. Result: (2, 2)
+Function 24 was add called. Result: (6, 4)
+Function add was add called. Result: 4
+Function mult was add called. Result: 24
+Function 'add' was add called. Result: 4
+Function 'mult' was add called. Result: 24
