@@ -9,7 +9,6 @@ function oscarsCeremony(params) {
     let total = rent + statues + food + sound;
 
     console.log(total.toFixed(2));
-    
 }
 
 oscarsCeremony(["3500"])
