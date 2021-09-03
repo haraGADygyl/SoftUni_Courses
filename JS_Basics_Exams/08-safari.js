@@ -22,13 +22,13 @@ function safari(params) {
     } else {
         console.log(`Not enough money! Money needed: ${diff.toFixed(2)} lv.`);
     }
-    
+
 }
 
 safari(["1000",
-"10",
-"Sunday"])
+    "10",
+    "Sunday"])
 
 safari(["120",
-"30",
-"Saturday"])
+    "30",
+    "Saturday"])
