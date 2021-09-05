@@ -67,14 +67,8 @@ function filmPremiere(params) {
     console.log(`Your bill is ${totalTicketPrice.toFixed(2)} leva.`);
 }
 
-filmPremiere(["John Wick",
-    "Drink",
-    "6"])
+filmPremiere(["John Wick", "Drink", "6"])
 
-filmPremiere(["Star Wars",
-    "Popcorn",
-    "4"])
+filmPremiere(["Star Wars", "Popcorn", "4"])
 
-filmPremiere(["Jumanji",
-    "Menu",
-    "2"])
+filmPremiere(["Jumanji", "Menu", "2"])
