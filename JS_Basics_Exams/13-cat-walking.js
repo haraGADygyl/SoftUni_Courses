@@ -11,9 +11,7 @@ function catWalk(params) {
     } else {
         console.log(`No, the walk for your cat is not enough. Burned calories per day: ${totalCalories}.`);
     }
-
 }
 
 catWalk(["30", "3", "600"])
-
 catWalk(["15", "2", "500"])
