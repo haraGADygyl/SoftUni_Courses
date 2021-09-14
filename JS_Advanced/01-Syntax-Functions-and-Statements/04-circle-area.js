@@ -1,9 +1,9 @@
-function circleArea(params) {
+function circleArea(radius) {
 
-    let checkType = typeof(params);
+    let checkType = typeof(radius);
 
     if (checkType == 'number') {
-        let area = Math.PI * params ** 2
+        let area = Math.PI * radius ** 2
         console.log(area.toFixed(2));
     } else {
         console.log(`We can not calculate the circle area, because we receive a ${checkType}.`);
