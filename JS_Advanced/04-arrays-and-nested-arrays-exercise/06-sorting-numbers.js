@@ -1,10 +1,16 @@
 function sortingNumbers(params) {
 
-    params.sort();
+    function compareNumbers(a, b) {
+        return a - b
+    }
+
+    params.sort(compareNumbers);
+
+    let paramsLength = params.length/2
 
     let result = []
 
-    for (let i = 0; i < params.length; i++) {
+    for (let i = 0; i < paramsLength; i++) {
 
         result.push(params.shift())
         result.push(params.pop())
