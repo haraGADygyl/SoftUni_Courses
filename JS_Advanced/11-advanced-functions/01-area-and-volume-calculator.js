@@ -22,7 +22,6 @@ let data = `[
     {"x":"5","y":"2","z":"10"}
     ]`;
 
-
 console.log(solve(area, vol, data));
 
 function area() {
@@ -32,4 +31,3 @@ function area() {
 function vol() {
     return Math.abs(this.x * this.y * this.z);
 }
-
