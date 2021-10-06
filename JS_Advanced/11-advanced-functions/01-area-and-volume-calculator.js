@@ -1,33 +1,40 @@
-function solve(area, vol, input) {
+function area() {
+    return Math.abs(this.x * this.y);
+};
 
-    let cubes = JSON.parse(input);
+function vol() {
+    return Math.abs(this.x * this.y * this.z);
+};
+
+
+function solve (area, vol, data) {
+    let dataJSON = JSON.parse(data);
     let result = [];
 
-    for (let cube of cubes) {
-        let cubeArea = area.apply(cube);
-        let cubeVol = vol.apply(cube);
-
+    for (let i of dataJSON) {
         result.push({
-            area: cubeArea,
-            volume: cubeVol,
-        });
+            area: area.call(i),
+            volume: vol.call(i),
+        })
     }
 
     return result;
 }
 
-let data = `[
+
+
+solve(area, vol, `[
     {"x":"1","y":"2","z":"10"},
     {"x":"7","y":"7","z":"10"},
     {"x":"5","y":"2","z":"10"}
-    ]`;
+    ]`
+)
 
-console.log(solve(area, vol, data));
-
-function area() {
-    return Math.abs(this.x * this.y);
-}
-
-function vol() {
-    return Math.abs(this.x * this.y * this.z);
-}
+solve(area, vol, `[
+    {"x":"10","y":"-22","z":"10"},
+    {"x":"47","y":"7","z":"-5"},
+    {"x":"55","y":"8","z":"0"},
+    {"x":"100","y":"100","z":"100"},
+    {"x":"55","y":"80","z":"250"}
+    ]`
+)

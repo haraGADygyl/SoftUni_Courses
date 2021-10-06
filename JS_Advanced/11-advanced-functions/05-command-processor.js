@@ -1,31 +1,16 @@
-function commandProcessor() {
+function solution() {
+
     let result = '';
 
-    function append(sting) {
-        result += sting;
-    }
-
-    function removeStart(n) {
-        result = result.slice(n);
-    }
-
-    function removeEnd(n) {
-        result = result.slice(0, -n);
-    }
-
-    function print() {
-        console.log(result);
-    }
-
     return {
-        append,
-        removeStart,
-        removeEnd,
-        print,
+        append: (string) => result += string,
+        removeStart: (n) => result = result.slice(n),
+        removeEnd: (n) => result = result.slice(0, -n),
+        print: () => console.log(result),
     }
 }
 
-let firstZeroTest = commandProcessor();
+let firstZeroTest = solution();
 
 firstZeroTest.append('hello');
 firstZeroTest.append('again');
