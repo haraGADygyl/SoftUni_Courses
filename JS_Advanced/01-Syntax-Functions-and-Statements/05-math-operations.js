@@ -1,6 +1,6 @@
-function calculator(num1, num2, operator) {
+function solve(num1, num2, operator) {
 
-    let result;
+    let result = 0;
 
     switch (operator) {
         case '+': result = num1 + num2; break;
@@ -14,5 +14,5 @@ function calculator(num1, num2, operator) {
     console.log(result);
 }
 
-calculator(5, 6, '+');
-calculator(3, 5.5, '*');
+solve(5, 6, '+');
+solve(3, 5.5, '*');

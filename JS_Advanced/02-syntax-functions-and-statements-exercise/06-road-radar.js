@@ -1,36 +1,35 @@
-function radar(speed, area) {
+function solve(speed, area) {
 
-    let motorwaySpeed = 130;
-    let interstateSpeed = 90;
-    let citySpeed = 50;
-    let residentialSpeed = 20;
+    let motorway = 130;
+    let interstate = 90;
+    let city = 50;
+    let residential = 20;
 
-    let currentSpeedLimit = 0;
+    let difference = 0;
+    let speedLimit = 0;
+    let status = '';
 
     switch (area) {
-        case 'motorway': currentSpeedLimit = motorwaySpeed; break;
-        case 'interstate': currentSpeedLimit = interstateSpeed; break;
-        case 'city': currentSpeedLimit = citySpeed; break;
-        case 'residential': currentSpeedLimit = residentialSpeed;
+        case 'motorway': difference = speed - motorway; speedLimit = motorway; break;
+        case 'interstate': difference = speed - interstate; speedLimit = interstate; break;
+        case 'city': difference = speed - city; speedLimit = city; break;
+        case 'residential': difference = speed - residential; speedLimit = residential; break;
     }
 
-    let difference = speed - currentSpeedLimit;
+    switch (true) {
+        case difference <= 20: status = 'speeding'; break;
+        case difference <= 40: status = 'excessive speeding'; break;
+        case difference > 40: status = 'reckless driving'; break;
+    }
 
-    if (difference > 0) {
-        let status = ''
-
-        switch (true) {
-            case difference <= 20: status = 'speeding'; break;
-            case difference <= 40: status = 'excessive speeding'; break;
-            case difference > 40: status = 'reckless driving';
-        }
-        console.log(`The speed is ${difference} km/h faster than the allowed speed of ${currentSpeedLimit} - ${status}`);
+    if (difference <= 0) {
+        console.log(`Driving ${speed} km/h in a ${speedLimit} zone`);
     } else {
-        console.log(`Driving ${speed} km/h in a ${currentSpeedLimit} zone`);
+        console.log(`The speed is ${difference} km/h faster than the allowed speed of ${speedLimit} - ${status}`);
     }
 }
 
-radar(40, 'city');
-radar(21, 'residential');
-radar(120, 'interstate');
-radar(200, 'motorway');
+solve(40, 'city');
+solve(21, 'residential');
+solve(120, 'interstate');
+solve(200, 'motorway');

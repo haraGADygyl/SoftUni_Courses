@@ -1,4 +1,4 @@
-function calendar(day) {
+function solve(day) {
 
     let result;
 
@@ -10,12 +10,12 @@ function calendar(day) {
         case 'Friday': result = 5; break;
         case 'Saturday': result = 6; break;
         case 'Sunday': result = 7; break;
-        default: result = 'error'
+        default: result = 'error';
     }
-
+    
     console.log(result);
 }
 
-calendar('Monday');
-calendar('Friday');
-calendar('Invalid');
+solve('Monday');
+solve('Friday');
+solve('Invalid')

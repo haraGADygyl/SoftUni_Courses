@@ -1,12 +1,10 @@
-function stringLength(first, second, third) {
+function solve(first, second, third) {
 
-    sumLength = first.length + second.length + third.length;
+    let sum = first.length + second.length + third.length;
+    let avg = sum / 3;
 
-    averageLength = Math.floor(sumLength / 3);
-
-    console.log(sumLength);
-    console.log(averageLength);
+    console.log(sum);
+    console.log(Math.trunc(avg));
 }
 
-stringLength('chocolate', 'ice cream', 'cake')
-stringLength('pasta', '5', '22.3')
+solve('chocolate', 'ice cream', 'cake')

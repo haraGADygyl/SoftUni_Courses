@@ -1,9 +1,9 @@
-function daysMonth(month, year) {
+function solve(month, year) {
 
-    let a = new Date(year, month, 0).getDate();
+    let date = new Date(year, month, 0).getDate()
 
-    console.log(a);
+    console.log(date);
 }
 
-daysMonth(1, 2012);
-daysMonth(2, 2021);
+solve(1, 2012);
+solve(2, 2021);

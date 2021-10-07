@@ -1,14 +1,11 @@
-function circleArea(radius) {
+function solve(param) {
 
-    let checkType = typeof(radius);
-
-    if (checkType == 'number') {
-        let area = Math.PI * radius ** 2
-        console.log(area.toFixed(2));
+    if (typeof param == 'number') {
+        console.log((Math.PI * param ** 2).toFixed(2));
     } else {
-        console.log(`We can not calculate the circle area, because we receive a ${checkType}.`);
+        console.log(`We can not calculate the circle area, because we receive a ${typeof param}.`);
     } 
 }
 
-circleArea(5)
-circleArea('name')
+solve(5);
+solve('name');

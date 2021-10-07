@@ -1,12 +1,9 @@
-function gcd(x, y) {
-
-    while (y) {
-        let t = y;
-        y = x % y;
-        x = t;
+function solve(a, b) {
+    if (!b) {
+        return a;
     }
-    console.log(x);;
+    return solve(b, a % b)
 }
 
-gcd(15, 5);
-gcd(2154, 458);
+console.log(solve(15, 5));
+console.log(solve(2154, 458));

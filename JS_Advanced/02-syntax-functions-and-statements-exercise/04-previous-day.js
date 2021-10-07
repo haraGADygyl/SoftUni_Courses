@@ -1,10 +1,10 @@
-function previousDay(year, month, day) {
+function solve(year, month, day) {
 
-    let dateString = year + '-' + month + '-' + day;
-    let event = new Date(dateString);
-    event.setDate(day - 1);
-    console.log(event.getFullYear() + '-' + Number(event.getMonth() + 1) + '-' + event.getDate());
+    let result = new Date(`${year}-${month}-${day}`);
+    result.setDate(day - 1);
+
+    console.log(`${result.getFullYear()}-${result.getMonth()+1}-${result.getDate()}`);
 }
 
-previousDay(2016, 9, 30);
-previousDay(2016, 10, 1);
+solve(2016, 9, 30);
+solve(2016, 10, 1);

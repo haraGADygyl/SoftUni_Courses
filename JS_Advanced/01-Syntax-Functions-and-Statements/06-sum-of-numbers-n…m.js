@@ -1,16 +1,15 @@
-function sumNum(num1, num2) {
-
+function solve(first, second) {
+    
+    let num1 = Number(first);
+    let num2 = Number(second);
     let result = 0;
 
-    n1 = Number(num1);
-    n2 = Number(num2);
-
-    for (let i = n1; i <= n2; i++) {
+    for (let i = num1; i <= num2; i++) {
         result += i;
     }
     
     console.log(result);
 }
 
-sumNum('1', '5');
-sumNum('-8', '20');
+solve('1', '5');
+solve('-8', '20');

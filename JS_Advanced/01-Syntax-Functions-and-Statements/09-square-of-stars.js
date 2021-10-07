@@ -1,19 +1,11 @@
-function squareStars(number) {
+function solve(number = 5) {
 
-    if (number == undefined) {
-        console.log('* * * * *' + '\n' +
-                    '* * * * *' + '\n' +
-                    '* * * * *' + '\n' +
-                    '* * * * *' + '\n' +
-                    '* * * * *');
-    }
-
-    for (let i = 0; i < number; i++) {
+    for (let i = 1; i <= number; i++) {
         console.log('* '.repeat(number));
     }
 }
 
-squareStars(1);
-squareStars(2);
-squareStars(5);
-squareStars();
+solve(1);
+solve(2);
+solve(5);
+solve();
