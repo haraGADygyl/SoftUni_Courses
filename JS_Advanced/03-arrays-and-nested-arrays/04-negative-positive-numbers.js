@@ -1,18 +1,20 @@
-function negPos(params) {
+function solve(arr) {
 
     let result = [];
 
-    for (let num of params) {
-
-        if (num < 0) {
-            result.unshift(num);
+    for (const item of arr) {
+        if (item < 0) {
+            result.unshift(item)
         } else {
-            result.push(num);
+            result.pop(item)
         }
     }
 
-    console.log(result.join('\n'));
+    for (const item of result) {
+        console.log(item);
+    }
 }
 
-negPos([7, -2, 8, 9]);
-negPos([3, -2, 0, -1]);
+solve([7, -2, 8, 9]);
+console.log('-'.repeat(20));
+solve([3, -2, 0, -1]);

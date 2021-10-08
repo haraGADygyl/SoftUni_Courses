@@ -1,23 +1,24 @@
-function rotateArray(arr, rotations) {
+function solve(arr, step) {
 
-    for (let i = 0; i < rotations; i++) {
+    let rotations = step % arr.length;
 
-        arr.unshift(arr.pop());
+    for (let index = 0; index < rotations; index++) {
+        arr.unshift(arr.pop())        
     }
 
-    console.log(arr.join(' '));
+    return arr.join(' ')
 }
 
-rotateArray(['1',
+console.log(solve(['1',
     '2',
     '3',
     '4'],
     2
-);
+));
 
-rotateArray(['Banana',
+console.log(solve(['Banana',
     'Orange',
     'Coconut',
     'Apple'],
     15
-);
+));

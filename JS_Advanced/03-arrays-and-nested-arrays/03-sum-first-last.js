@@ -1,10 +1,10 @@
-function sumFirst (numbers) {
+function solve(arr) {
+    let sum = 0;
 
-    let first = Number([...numbers].shift())
-    let last = Number([...numbers].pop())
+    sum += Number(arr.pop()) + Number(arr.shift()); 
 
-    return first + last;
+    console.log(sum);
 }
 
-console.log(sumFirst(['20', '30', '40']));;
-console.log(sumFirst(['5', '10']));;
+solve(['20', '30', '40']);
+solve(['5', '10']);

@@ -1,10 +1,13 @@
-function listNames(params) {
+function solve(arr) {
 
-    params.sort(Intl.Collator().compare)
+    arr.sort((a, b) => a.localeCompare(b));
+    let result = []
 
-    for (let i = 0; i < params.length; i++) {
-        console.log(`${i+1}.${params[i]}`);
-    } 
+    for (let index = 0; index < arr.length; index++) {
+        result.push(`${index+1}.${arr[index]}`)
+    }
+
+    return result.join('\n');
 }
 
-listNames(["John", "Bob", "boob", "Ema"]);
+console.log(solve(["John", "Bob", "Christina", "Ema"]));

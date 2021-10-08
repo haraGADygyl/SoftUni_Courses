@@ -1,22 +1,15 @@
-function sortingNumbers(params) {
+function solve(arr) {
 
-    function compareNumbers(a, b) {
-        return a - b
+    arr.sort((a, b) => a - b);
+    let stepsCount = arr.length / 2;
+    let result = [];
+
+    for (let index = 0; index < stepsCount; index++) {
+        result.push(arr.shift());
+        result.push(arr.pop())
     }
 
-    params.sort(compareNumbers);
-
-    let paramsLength = params.length/2
-
-    let result = []
-
-    for (let i = 0; i < paramsLength; i++) {
-
-        result.push(params.shift())
-        result.push(params.pop())
-    }
-    
-    return result
+    return result;
 }
 
-console.log(sortingNumbers([1, 65, 3, 52, 48, 63, 31, -3, 18, 56]));
+console.log(solve([1, 65, 3, 52, 48, 63, 31, -3, 18, 56]));

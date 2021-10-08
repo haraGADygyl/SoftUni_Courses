@@ -1,9 +1,9 @@
-function smallestTwo(params) {
+function solve(arr) {
 
-    let smallest = params.sort((a, b) => a - b)
+    arr.sort((a, b) => a - b);
 
-    console.log(smallest.slice(0, 2).join(' '));  
+    console.log(arr.shift(), arr.shift());
 }
 
-smallestTwo([30, 15, 50, 5]);
-smallestTwo([3, 0, 10, 4, 7, 3]);
+solve([30, 15, 50, 5]);
+solve([3, 0, 10, 4, 7, 3]);

@@ -1,43 +1,43 @@
-function addRemove(params) {
+function solve(arr) {
 
-    let result = []
-    let start = 1;
+    let result = [];
+    let number = 0;
 
-    for (let i = 0; i < params.length; i++) {
+    for (const command of arr) {
+        number++;
 
-        if (params[i] === 'add') {
-
-            result.push(start);
-
-        } else if (params[i] === 'remove') {
-
+        if (command == 'add') {
+            result.push(number);
+        } else {
             result.pop();
         }
-
-        start++
     }
 
-    if (result.length === 0) {
-        console.log('Empty');
+    if (result.length > 0) {
+        return result.join('\n')
     } else {
-        console.log(result.join('\n'));
+        return 'Empty'
     }
 }
 
-addRemove(['add',
+console.log(solve(['add',
     'add',
     'add',
     'add']
-);
+));
 
-addRemove(['add',
+console.log('-'.repeat(10));
+
+console.log(solve(['add',
     'add',
     'remove',
     'add',
     'add']
-);
+));
 
-addRemove(['remove',
+console.log('-'.repeat(10));
+
+console.log(solve(['remove',
     'remove',
     'remove']
-);
+));

@@ -1,28 +1,28 @@
-function biggest(params) {
+function solve(arr) {
 
-    let biggestNum = params[0][0];
+    let biggestNumber = arr[0][0];
 
-    for (row of params) {
-        for (col of row) {
-            if (col >= biggestNum) {
-                biggestNum = col;
+    for (const outer of arr) {
+        for (const inner of outer) {
+            if (inner > biggestNumber) {
+                biggestNumber = inner;
             }
         }
     }
 
-    return biggestNum;
+    return biggestNumber;
 }
 
-console.log(biggest([[20, 50, 10],
+console.log(solve([[20, 50, 10],
     [8, 33, 145]]
 ));
 
-console.log(biggest([[3, 5, 7, 12],
+console.log(solve([[3, 5, 7, 12],
     [-1, 4, 33, 2],
     [8, 3, 0, 4]]
 ));
 
-console.log(biggest([[3, 5, 7, 12],
+console.log(solve([[3, 5, 7, 12],
     [-1, 4, 33, 2],
-    [8, 3, 0, 4]]
+    [8, 3, 0, 94]]
 ));

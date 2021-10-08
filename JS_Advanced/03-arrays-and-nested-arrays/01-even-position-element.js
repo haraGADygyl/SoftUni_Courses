@@ -1,16 +1,15 @@
-function evenPosition(params) {
+function solve(arr) {
 
-    let evenIndexNums = []
+    let result = [];
 
-    for (let i = 0; i < params.length; i++) {
-
-        if (i % 2 == 0) {
-            evenIndexNums.push(params[i])
-        }
+    for (let index = 0; index < arr.length; index++) {
+        if (index % 2 == 0) {
+            result.push(arr[index])
+        }        
     }
-    
-    console.log(...evenIndexNums);
+
+    console.log(result.join(' ')); 
 }
 
-evenPosition(['20', '30', '40', '50', '60'])
-evenPosition(['5', '10'])
+solve(['20', '30', '40', '50', '60']);
+solve(['5', '10']);

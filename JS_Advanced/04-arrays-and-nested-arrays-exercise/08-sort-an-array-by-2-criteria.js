@@ -1,34 +1,34 @@
-function sortBy2Criteria(params) {
+function solve(arr) {
 
-    let result = params.sort((a, b) => {
-
+    arr.sort((a, b) => {
         if (a.length > b.length) {
-            return 1
+            return 1;
         } else if (a.length == b.length) {
             return a.localeCompare(b);
         } else {
-            return -1
+            return -1;
         }
-    })
+    });
 
-    console.log(result.join('\n'));
+    return arr.join('\n');
 }
 
-sortBy2Criteria(['alpha',
+
+console.log(solve(['alpha',
     'beta',
     'gamma']
-);
+));
 
-sortBy2Criteria(['Isacc',
+console.log(solve(['Isacc',
     'Theodor',
     'Jack',
     'Harrison',
     'George']
 
-);
+));
 
-sortBy2Criteria(['test',
+console.log(solve(['test',
     'Deny',
     'omen',
     'Default']
-);
+));

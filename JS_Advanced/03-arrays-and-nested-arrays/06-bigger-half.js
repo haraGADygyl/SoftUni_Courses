@@ -1,11 +1,11 @@
-function biggerHalf(params) {
+function solve(arr) {
 
-    params.sort((a, b) => a - b)
+    arr.sort((a, b) => a - b);
 
-    let middle = Number(params.length / 2);
+    let middle = parseInt(arr.length / 2);
 
-    return params.slice(middle)
+    return arr.slice(middle)   
 }
 
-console.log(biggerHalf([4, 7, 2, 5]));
-console.log(biggerHalf([3, 19, 14, 7, 2, 19, 6]));
+console.log(solve([4, 7, 2, 5]));
+console.log(solve([3, 19, 14, 7, 2, 19, 6]));

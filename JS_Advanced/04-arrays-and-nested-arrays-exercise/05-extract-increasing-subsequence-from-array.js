@@ -1,37 +1,19 @@
-// Version 1
-// function increasingSubsequence(params) {
+function solve(arr) {
 
-//     let result = [Number(params[0])];
+    let result = [arr[0]];
+    let lastElement = arr[0];
 
-//     for (let i = 1; i < params.length; i++) {
-
-//         if (Number(params[i] >= Number(result[result.length - 1]))) {
-
-//             result.push(Number(params[i]));
-//         }
-//     }
-
-//     return result;
-// }
-
-
-// Version 2
-function increasingSubsequence(params) {
-
-    let biggest = Number.MIN_SAFE_INTEGER;
-
-    const result = params.filter((el) => {
-        if (el >= biggest) {
-            biggest = el;
-            return true;
+    for (let index = 1; index < arr.length; index++) {
+        if (arr[index] >= lastElement) {
+            result.push(arr[index]);
+            lastElement = arr[index]
         }
-        return false;
-    });
+    }
 
     return result;
 }
 
-console.log(increasingSubsequence([1,
+console.log(solve([1,
     3,
     8,
     4,
@@ -42,13 +24,13 @@ console.log(increasingSubsequence([1,
     24]
 ));
 
-console.log(increasingSubsequence([1,
+console.log(solve([1,
     2,
     3,
     4]
 ));
 
-console.log(increasingSubsequence([20,
+console.log(solve([20,
     3,
     2,
     15,
