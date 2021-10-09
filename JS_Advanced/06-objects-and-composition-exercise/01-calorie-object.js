@@ -1,14 +1,12 @@
-function calorieObject(arr) {
+function solve(arr) {
 
-    const result = {};
+    let obj = {};
 
-    for (let i = 0; i < arr.length; i+=2) {
-
-        result[arr[i]] = Number(arr[i+1])
+    for (let index = 0; index < arr.length; index += 2) {
+        obj[arr[index]] = Number(arr[index + 1]);
     }
-    
-    console.log(result);
+    return obj;
 }
 
-calorieObject(['Yoghurt', '48', 'Rise', '138', 'Apple', '52']);
-calorieObject(['Potato', '93', 'Skyr', '63', 'Cucumber', '18', 'Milk', '42']);
+console.log(solve(['Yoghurt', '48', 'Rise', '138', 'Apple', '52']));
+console.log(solve(['Potato', '93', 'Skyr', '63', 'Cucumber', '18', 'Milk', '42']));

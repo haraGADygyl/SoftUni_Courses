@@ -1,20 +1,18 @@
-function cityRecord(name, population, treasury) {
+function solve(name, population, treasury ) {
 
-    const result = {
+    return {
         name,
         population,
-        treasury
-    }
-
-    return result
+        treasury,
+    } 
 }
 
-console.log(cityRecord('Tortuga',
+console.log(solve('Tortuga',
     7000,
     15000
 ));
 
-console.log(cityRecord('Santo Domingo',
+console.log(solve('Santo Domingo',
     12000,
     23500
 ));

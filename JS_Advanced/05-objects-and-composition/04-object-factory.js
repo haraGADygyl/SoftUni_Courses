@@ -1,21 +1,20 @@
 function factory(library, orders) {
 
-    return orders.map(compose);
+    let result = [];
 
-    function compose(order) {
-
-        let result = Object.assign({}, order.template);
-
-        for (let part of order.parts) {
-            result[part] = library[part];
-        }
-
-        return result
+    for (let index = 0; index < orders.length; index++) {
+        let obj = orders[index].template;
+        
+        orders[index].parts.forEach(element => {
+            obj[element] = library[element]
+        });
+        result.push(obj)
     }
+    return result;
 }
 
 const library = {
-    print: function () {
+    print: function () { 
       console.log(`${this.name} is printing a page`);
     },
     scan: function () {

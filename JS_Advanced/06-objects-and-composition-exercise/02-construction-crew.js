@@ -1,14 +1,14 @@
-function crew(obj) {
+function solve(person) {
 
-    if (obj.dizziness) {
-        obj.levelOfHydrated += 0.1 * obj.weight * obj.experience;
-        obj.dizziness = false;
+    if (person.dizziness) {
+        
+        person['levelOfHydrated'] += person.weight * person.experience * 0.1;
+        person['dizziness'] = false;
     }
-
-    return obj;
+    return person; 
 }
 
-console.log(crew({
+console.log(solve({
     weight: 80,
     experience: 1,
     levelOfHydrated: 0,
@@ -16,10 +16,18 @@ console.log(crew({
 }
 ));
 
-console.log(crew({
+console.log(solve({
     weight: 120,
     experience: 20,
     levelOfHydrated: 200,
     dizziness: true
+}
+));
+
+console.log(solve({
+    weight: 95,
+    experience: 3,
+    levelOfHydrated: 0,
+    dizziness: false
 }
 ));

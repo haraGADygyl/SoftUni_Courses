@@ -1,28 +1,37 @@
-function carFactory(obj) {
+function solve(obj) {
 
-    const result = {};
+    let objectCar = {};
 
-    function getEngine(power) {
-        if (power <= 90) {
-            return { power: 90, volume: 1800 }
-        } else if (power <= 120) {
-            return { power: 120, volume: 2400 }
-        } else if (power <= 200) {
-            return { power: 200, volume: 3500 }
+    objectCar['model'] = obj['model']
+
+    if (obj['power'] <= 90) {
+        objectCar['engine'] = {
+            power: 90,
+            volume: 1800,
+        }
+    } else if (obj['power'] <= 120) {
+        objectCar['engine'] = {
+            power: 120,
+            volume: 2400,
+        }
+    } else {
+        objectCar['engine'] = {
+            power: 200,
+            volume: 3500,
         }
     }
 
-    let properWheelSize = obj.wheelsize % 2 == 0 ? obj.wheelsize - 1 : obj.wheelsize
+    objectCar['carriage'] = {type: obj['carriage'], color: obj['color']};
 
-    result.model = obj.model;
-    result.engine = getEngine(obj.power);
-    result.carriage = { type: obj.carriage, color: obj.color };
-    result.wheels = new Array(4).fill(properWheelSize, 0, 4)
-
-    return result
+    if (obj['wheelsize'] % 2 == 0) {
+        objectCar['wheels'] = Array(4).fill(obj['wheelsize'] - 1, 0, 4);
+    } else {
+        objectCar['wheels'] = Array(4).fill(obj['wheelsize'], 0, 4);
+    }
+    return objectCar;
 }
 
-console.log(carFactory({
+console.log(solve({
     model: 'VW Golf II',
     power: 90,
     color: 'blue',
@@ -31,7 +40,7 @@ console.log(carFactory({
 }
 ));
 
-console.log(carFactory({
+console.log(solve({
     model: 'Opel Vectra',
     power: 110,
     color: 'grey',

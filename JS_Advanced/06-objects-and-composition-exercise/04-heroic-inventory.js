@@ -1,20 +1,24 @@
-function heroInventory(arr) {
+function solve(arr) {
 
-    const result = [];
+    let heroObj = [];
 
     arr.forEach(element => {
         let [name, level, items] = element.split(' / ');
-        result.push({
+        level = Number(level);
+        items = items ? items.split(', ') : [];
+
+        heroObj.push({
             name,
-            level: Number(level),
-            items: items ? items.split(', ') : []
+            level,
+            items,
         })
     });
-
-    return JSON.stringify(result)
+    return JSON.stringify(heroObj);
 }
 
-console.log(heroInventory(['Isacc / 25 / Apple, GravityGun',
+console.log(solve(['Isacc / 25 / Apple, GravityGun',
     'Derek / 12 / BarrelVest, DestructionSword',
     'Hes / 1 / Desolator, Sentinel, Antara']
 ));
+
+console.log(solve(['Jake / 1000']));
