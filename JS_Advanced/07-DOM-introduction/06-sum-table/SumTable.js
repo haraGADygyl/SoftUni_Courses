@@ -1,13 +1,13 @@
 function sumTable() {
 
-    let rows = document.querySelectorAll('table tr');
-    let sum = 0;
+    let allTd = document.querySelectorAll('td:nth-child(2)');
 
-    for (let index = 1; index < rows.length - 1; index++) {
-        
-        let cell = rows[index].lastElementChild;
-        sum += Number(cell.textContent);
+    let sum = 0;
+    for (const td of allTd) {
+        if (typeof td.textContent == 'string') {
+            sum += Number(td.textContent);
+        }
     }
 
-    document.getElementById('sum').textContent = sum;
+    document.querySelector('#sum').textContent = sum;
 }

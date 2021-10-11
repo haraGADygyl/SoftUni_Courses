@@ -1,9 +1,7 @@
 function subtract() {
 
-    let firstNum = Number(document.getElementById('firstNumber').value);
-    let secondNum = Number(document.getElementById('secondNumber').value);
-
-    let result = firstNum - secondNum;
-
-    document.getElementById('result').innerText = result;
+    let firstNum = document.querySelector('#firstNumber').value;
+    let secondNum = document.querySelector('#secondNumber').value;
+    
+    document.querySelector('#result').textContent = Number(firstNum) - Number(secondNum);
 }

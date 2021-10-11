@@ -1,34 +1,24 @@
 function solve() {
-
-  let text = document.getElementById('text').value;
-  let namingConv = document.getElementById('naming-convention').value;
-  let resultContainer = document.getElementById('result');
-
-  let splitted = text.split(' ');
+  let textElement = document.querySelector('#text').value;
+  let namingConventionElement = document.querySelector('#naming-convention').value;
+  let resultElement = document.querySelector('#result');
 
   let result = [];
+  let splitText = textElement.split(' ')
 
-  if (namingConv == 'Pascal Case') {
+  if (namingConventionElement === 'Camel Case') {
+      result.push(splitText[0].toLowerCase());
 
-    for (let i = 0; i < splitted.length; i++) {
+      for (let i = 1; i < splitText.length; i++) {
+          result.push(splitText[i][0].toUpperCase() + splitText[i].slice(1).toLowerCase());
+      }
+  } else if (namingConventionElement === 'Pascal Case') {
 
-      result.push(splitted[i][0].toUpperCase() +
-        splitted[i].slice(1, splitted[i].length).toLowerCase());
-    }
-
-  } else if (namingConv == 'Camel Case') {
-
-    result.push(splitted[0].toLowerCase())
-
-    for (let i = 1; i < splitted.length; i++) {
-
-      result.push(splitted[i][0].toUpperCase() +
-        splitted[i].slice(1, splitted[i].length).toLowerCase());
-    }
+      for (const splitTextElement of splitText) {
+          result.push(splitTextElement[0].toUpperCase() + splitTextElement.slice(1).toLowerCase());
+      }
   } else {
-    resultContainer.innerText = 'Error!';
-    return;
+      result.push('Error!');
   }
-
-  resultContainer.innerText = result.join('');
+  resultElement.textContent = result.join('');
 }

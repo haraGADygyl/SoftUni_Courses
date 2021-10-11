@@ -1,9 +1,8 @@
 function colorize() {
     
-    let rows = document.querySelectorAll('table tr');
+    let tableRows = document.querySelectorAll('table tr:nth-child(even)');
 
-    for (let index = 1; index < rows.length; index += 2) {
-        
-        rows[index].style.backgroundColor = 'teal';
+    for (const row of tableRows) {
+        row.style.backgroundColor = 'teal'
     }
 }

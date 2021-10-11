@@ -1,8 +1,8 @@
 function showText() {
 
-    let text = document.getElementById('text');
-    text.style.display = 'inline';
-
-    let anchor = document.getElementById('more');
-    anchor.style.display = 'none';
+    let linkElement = document.querySelector('#more');
+    let textElement = document.querySelector('#text');
+    
+    textElement.style.display = 'inline'
+    linkElement.style.display = 'none';
 }
