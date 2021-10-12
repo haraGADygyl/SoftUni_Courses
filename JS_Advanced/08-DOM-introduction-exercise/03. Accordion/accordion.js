@@ -1,12 +1,17 @@
 function toggle() {
+    let textElement = document.querySelector('#extra');
+    let buttonElement = document.querySelector('.button');
 
-    let button = document.querySelector('.button');
-    let textDIV = document.getElementById('extra');
+    // if (buttonElement.textContent === 'More') {
+    //
+    //     buttonElement.textContent = 'Less';
+    //     textElement.style.display = 'block';
+    // } else {
+    //
+    //     buttonElement.textContent = 'More';
+    //     textElement.style.display = 'none'
+    // }
 
-    button.textContent = button.textContent == 'More' ? 'Less' : 'More';
-
-    textDIV.style.display = textDIV.style.display == 'none' || textDIV.style.display == ' ' ?
-        textDIV.style.display = 'block' : textDIV.style.display = 'none';
-
-    console.log(button);
+    buttonElement.textContent = buttonElement.textContent === 'More' ? 'Less' : 'More';
+    textElement.style.display = textElement.style.display === 'block' ? 'none' : 'block';
 }

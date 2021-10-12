@@ -1,21 +1,17 @@
 function solve() {
-   document.querySelector('#searchBtn').addEventListener('click', onClick);
+    document.querySelector('#searchBtn').addEventListener('click', onClick);
 
-   function onClick() {
-      let input = document.getElementById('searchField')
-      let inputText = input.value.toLowerCase();
-      let tableELements = Array.from(document.querySelectorAll('tbody tr'));
+    function onClick() {
+        let searchFieldElements = document.querySelector('#searchField');
+        let rowsElements = document.querySelectorAll('tbody tr');
 
-      tableELements.forEach((el) => {
-         let text = el.textContent.toLowerCase();
-
-         if (text.includes(inputText)) {
-            el.classList.add('select');
-         } else {
-            el.classList.remove('select');
-         }
-      })
-
-      input.value = '';
-   }
+        for (const rowsElement of rowsElements) {
+            if (rowsElement.textContent.includes(searchFieldElements.value)) {
+                rowsElement.classList.add("select");
+            } else {
+                rowsElement.classList.remove('select');
+            }
+        }
+        searchFieldElements.value = '';
+    }
 }
