@@ -7,7 +7,7 @@ function deleteByEmail() {
     let removed = false;
 
     for (let row of rows) {
-        if (row.children[1].textContent == input.value) {
+        if (row.children[1].textContent === input.value) {
             row.remove();
             removed = true;
         }

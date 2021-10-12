@@ -1,24 +1,19 @@
 function solve() {
+    let textAreaElement = document.querySelector('#input');
+    let outputDivElement = document.querySelector('#output');
 
-  let text = document.getElementById('input').value;
-  let sentences = text.split('.');
-  sentences.pop();
-  let result = '';
+    let splitTextArea = textAreaElement.value.split('.')
+        .filter(x => x !== '')
+        .map(x => x + '.');
 
-  for (let i = 0; i < sentences.length; i += 3) {
+    let result = [];
+    for (let i = 0; i < splitTextArea.length; i++) {
 
-    result += `<p>${sentences[i]}.`;
+        result.push(splitTextArea[i]);
 
-    if (sentences[i + 1] != undefined) {
-      result += sentences[i + 1] + '.';
+        if (result.length === 3 || i === splitTextArea.length - 1) {
+            outputDivElement.innerHTML += `<p>${result.join('')}</p>`;
+            result = [];
+        }
     }
-
-    if (sentences[i + 2] != undefined) {
-      result += sentences[i + 2] + '.';
-    }
-
-    result += '</p>'
-  }
-
-  document.getElementById('output').innerHTML = result;
 }

@@ -1,11 +1,10 @@
 function addItem() {
-   
-    let text = document.getElementById('newItemText');
+    let textAreaElement = document.querySelector('#newItemText');
+    let listElements = document.querySelector('#items');
 
-    let liElement = document.createElement('li');
-    liElement.textContent = text.value;
+    let newListElement = document.createElement('li');
+    newListElement.textContent = textAreaElement.value;
+    listElements.appendChild(newListElement);
 
-    document.getElementById('items').appendChild(liElement);
-
-    text.value = '';
+    textAreaElement.value = '';
 }

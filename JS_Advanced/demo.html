@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM events</title>
+</head>
+<body>
+    <h1>Super Heroes</h1>
+        <ul id="hero-list">
+            <li>Superman</li>
+            <li>Batman</li>
+            <li>Hulk</li>
+            <li>Wonderwoman</li>
+        </ul>
+
+    <div>
+        <label for="hero-name">Hero Name</label>
+        <input id="hero-name" type="text"/>
+        <button id="add-hero-button" onclick="addHero()">Add hero</button>
+    </div>
+
+    <div>
+        <label for="delete-hero">Delete Hero</label>
+        <input id="delete-hero" type="text"/>
+        <button id="delete-button" onclick="deleteHero()">Delete Hero</button>
+    </div>
+
+    <script src="demo.js"></script>
+
+</body>
+</html>
