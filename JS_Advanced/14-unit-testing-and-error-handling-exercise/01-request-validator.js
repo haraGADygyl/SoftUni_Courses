@@ -49,7 +49,7 @@ try {
             method: 'GET',
             uri: 'svn.public.catalog',
             version: 'HTTP/1.1',
-            message: 123
+            message: '123'
         }
     ))
 } catch (e) {
