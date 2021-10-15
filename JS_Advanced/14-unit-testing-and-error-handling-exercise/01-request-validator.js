@@ -21,7 +21,7 @@ function solve(validObject) {
         let uriRegex = /^\*$|^[a-zA-Z0-9.]+$/;
 
         if (validObject[propName] === undefined || validObject[propName] === '' || !uriRegex.test(validObject[propName])) {
-            throw new Error('Invalid request header: Invalid URI')
+            throw new Error('Invalid request header: Invalid URI');
         }
     }
 
@@ -30,7 +30,7 @@ function solve(validObject) {
         let validVersion = ['HTTP/0.9', 'HTTP/1.0', 'HTTP/1.1', 'HTTP/2.0'];
 
         if (validObject[propName] === undefined || !validVersion.includes(validObject[propName])) {
-            throw new Error('Invalid request header: Invalid Version')
+            throw new Error('Invalid request header: Invalid Version');
         }
     }
 
@@ -39,7 +39,7 @@ function solve(validObject) {
         let validMessageRegex = /^[^<>\\&'"]*$/;
 
         if (validObject[propName] === undefined || !validMessageRegex.test(validObject[propName])) {
-            throw new Error('Invalid request header: Invalid Message')
+            throw new Error('Invalid request header: Invalid Message');
         }
     }
 }
