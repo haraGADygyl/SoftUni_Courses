@@ -25,7 +25,6 @@ class Restaurant {
                 this.history.push(`There was not enough money to load ${productQuantity} ${productName}`);
             }
         }
-
         return this.history.join('\n');
     }
 
@@ -68,16 +67,29 @@ class Restaurant {
         }
 
         return result.join('\n')
-
     }
 
     makeTheOrder(meal) {
         if (!this.menu[meal]) {
             return `There is not ${meal} yet in our menu, do you want to order something else?`;
         } else {
+            let neededProducts = {};
 
+            for (const productsKey in this.menu[meal].products) {
+                if (!this.stockProducts[productsKey] || this.stockProducts[productsKey] < this.menu[meal].products[productsKey]) {
+                    return `For the time being, we cannot complete your order (${meal}), we are very sorry...`
+                } else {
+                    neededProducts[productsKey] = this.menu[meal].products[productsKey];
+                }
+            }
+
+            for (const neededProduct in neededProducts) {
+                this.stockProducts[neededProduct] -= neededProducts[neededProduct];
+            }
+
+            this.budgetMoney += this.menu[meal].price;
+            return `Your order (${meal}) will be completed in the next 30 minutes and will cost you ${this.menu[meal].price}.`
         }
-
     }
 }
 
