@@ -5,58 +5,63 @@ class Movie {
         this.screenings = [];
         this.totalProfit = 0;
         this.totalSoldTickets = 0;
+
     }
 
     newScreening(date, hall, description) {
-        if (this.screenings.some(s => s.date === date && s.hall === hall)) {
+
+        if (this.screenings.some(x => x.date === date && x.hall === hall)) {
             throw new Error(`Sorry, ${hall} hall is not available on ${date}`)
         }
 
         this.screenings.push({
             date,
             hall,
-            description
+            description,
         });
 
         return `New screening of ${this.movieName} is added.`
     }
 
     endScreening(date, hall, soldTickets) {
-        let screening = this.screenings.find(s => s.date === date && s.hall === hall);
-
-        if (screening === undefined) {
+        let currentScreening = this.screenings.find(x => x.date === date && x.hall === hall);
+        if (!currentScreening) {
             throw new Error(`Sorry, there is no such screening for ${this.movieName} movie.`)
         }
 
-        let index = this.screenings.indexOf(screening);
-        this.screenings.splice(index, 1);
-
-        let profit = this.ticketPrice * soldTickets
+        let profit = this.ticketPrice * soldTickets;
         this.totalProfit += profit;
         this.totalSoldTickets += soldTickets;
+
+        let index = this.screenings.indexOf(currentScreening);
+        this.screenings.splice(index, 1);
 
         return `${this.movieName} movie screening on ${date} in ${hall} hall has ended. Screening profit: ${profit}`;
     }
 
     toString() {
-        let result = [
-            `${this.movieName} full information:`,
-            `Total profit: ${this.totalProfit.toFixed(0)}$`,
-            `Sold Tickets: ${this.totalSoldTickets}`,
-        ]
 
-        if (this.screenings.length !== 0) {
-            result.push('Remaining film screenings:')
-            this.screenings
-                .sort((a, b) => a.hall.localeCompare(b.hall))
-                .forEach(s => result.push(`${s.hall} - ${s.date} - ${s.description}`))
+        let result = [];
+
+        result.push(`${this.movieName} full information:`);
+        result.push(`Total profit: ${this.totalProfit.toFixed(0)}$`);
+        result.push(`Sold Tickets: ${this.totalSoldTickets}`)
+
+        if (this.screenings.length > 0) {
+            result.push(`Remaining film screenings:`)
+
+            let sortedScreenings = this.screenings.sort((a, b) => a.hall.localeCompare(b.hall));
+            sortedScreenings.forEach(x => result.push(`${x.hall} - ${x.date} - ${x.description}`))
         } else {
-            result.push('No more screenings!')
+            result.push(`No more screenings!`)
         }
+
 
         return result.join('\n');
     }
 }
+
+
 
 let m = new Movie('Wonder Woman 1984', '10.00');
 console.log(m.newScreening('October 2, 2020', 'IMAX 3D', `3D`));

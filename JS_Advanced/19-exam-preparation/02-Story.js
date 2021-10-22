@@ -88,17 +88,30 @@ class Story {
                 .map(x => `--- ${x.id}. ${x.username}: ${x.content}`)
                 .join('\n')
 
-            replyString = sortedComment.replies.length > 0 ? `\n${replyString}` : ''
+            replyString = sortedComment.replies.length > 0 ? `\n${replyString}` : '';
 
             let finalString = `${commentString}${replyString}`
             commentsArr.push(finalString)
-        }
 
-        return `Title: ${this.title}
-Creator: ${this.creator}
-Likes: ${this._likes.length}
-Comments:
-${commentsArr.join('\n')}`
+
+        }
+        let fullCommentsString = commentsArr.join('\n')
+
+        let result = [];
+
+        result.push(`Title: ${this.title}`)
+        result.push(`Creator: ${this.creator}`)
+        result.push(`Likes: ${this._likes.length}`)
+        result.push(`Comments:`)
+        result.push(`\n${fullCommentsString}`)
+
+        return result.join('\n')
+
+//         return `Title: ${this.title}
+// Creator: ${this.creator}
+// Likes: ${this._likes.length}
+// Comments:
+// ${fullCommentsString}\n`
     }
 }
 
