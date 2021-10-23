@@ -14,7 +14,7 @@ let pizzUni = {
 
     getRemainingWork: function (statusArr) { // [{pizzaName: ‘the name of the pizza’, status: ‘ready’ / ‘preparing’ }]
 
-        const remainingArr = statusArr.filter(s => s.status != 'ready');
+        const remainingArr = statusArr.filter(s => s.status !== 'ready');
 
         if (remainingArr.length > 0) {
 
