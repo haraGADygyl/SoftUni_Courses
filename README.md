@@ -4,6 +4,8 @@
   ![Certificate](https://softuni.bg/certificates/certificates/converttoimage/108339?code=5c280629 "Certificate Python Advanced")
 - ### Python OOP June 2021
   ![Certificate](https://softuni.bg/certificates/certificates/converttoimage/110533?code=a27c4f51 "Certificate Python OOP")
+ - ### JavaScript Advanced September 2021
+ https://softuni.bg/Certificates/Details/114715/73b62dc3
 
 ## Topics covered in each course:
 
