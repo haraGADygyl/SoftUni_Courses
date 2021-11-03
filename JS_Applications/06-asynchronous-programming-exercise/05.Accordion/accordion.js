@@ -50,7 +50,7 @@ function button() {
         }
 
         const div = btn.parentNode.parentNode.querySelector('.extra');
-        div.style.display = div.style.display == 'inline' ? 'none' : 'inline';
+        div.style.display = div.style.display === 'inline' ? 'none' : 'inline';
 
         if (btn.textContent === 'More') {
             // paragraph.className = 'block'

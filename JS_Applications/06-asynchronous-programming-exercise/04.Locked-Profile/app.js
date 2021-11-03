@@ -1,5 +1,7 @@
 function lockedProfile() {
+
     const url = 'http://localhost:3030/jsonstore/advanced/profiles'
+
     fetch(url)
         .then(res => res.json())
         .then(data => {
