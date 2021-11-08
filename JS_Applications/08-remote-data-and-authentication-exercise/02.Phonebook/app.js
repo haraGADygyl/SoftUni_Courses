@@ -3,14 +3,12 @@ function attachEvents() {
     const loadBtn = document.getElementById('btnLoad');
     const createBtn = document.getElementById('btnCreate');
 
-
     loadBtn.addEventListener('click', loadContacts)
     createBtn.addEventListener('click', onCreate)
 
     phonebookElement.addEventListener('click', onDelete)
 
     loadContacts()
-
 }
 
 const phonebookElement = document.getElementById('phonebook');
@@ -25,7 +23,6 @@ async function onDelete(event) {
         await deleteContact(id);
         event.target.parentElement.remove()
     }
-
 }
 
 async function onCreate() {
@@ -36,7 +33,6 @@ async function onCreate() {
     const result = await createContact(contact);
 
     phonebookElement.appendChild(createItem(result));
-
 }
 
 async function loadContacts() {
@@ -47,7 +43,6 @@ async function loadContacts() {
     phonebookElement.textContent = ''
 
     Object.values(data).map(createItem).forEach(i => phonebookElement.appendChild(i))
-
 }
 
 function createItem(contact) {

@@ -15,7 +15,7 @@ function solve() {
             const url = `http://localhost:3030/jsonstore/bus/schedule/${stop.next}`;
 
             const res = await fetch(url);
-           stop = await res.json();
+            stop = await res.json();
 
             infoElement.textContent = `Next stop ${stop.name}`;
 

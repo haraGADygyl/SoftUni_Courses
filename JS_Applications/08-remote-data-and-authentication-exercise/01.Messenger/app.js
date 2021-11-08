@@ -21,7 +21,6 @@ async function onSubmit() {
 
     contentInput.value = '';
     list.value += '\n' + `${author}: ${content}`
-
 }
 
 async function loadMessages() {
@@ -33,8 +32,6 @@ async function loadMessages() {
     const messages = Object.values(data)
 
     list.value = messages.map(m => `${m.author}: ${m.content}`).join('\n');
-
-
 }
 
 async function createMessage(message) {
@@ -52,5 +49,4 @@ async function createMessage(message) {
     const result = await res.json();
 
     return result
-
 }
