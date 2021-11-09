@@ -1,75 +1,77 @@
 function attachEvents() {
+    document.getElementById('btnLoad').addEventListener('click', loadContacts)
+    document.getElementById('btnCreate').addEventListener('click', onCreate)
 
-    const loadBtn = document.getElementById('btnLoad');
-    const createBtn = document.getElementById('btnCreate');
-
-    loadBtn.addEventListener('click', loadContacts)
-    createBtn.addEventListener('click', onCreate)
-
-    phonebookElement.addEventListener('click', onDelete)
+    list.addEventListener('click', onDelete)
 
     loadContacts()
 }
 
-const phonebookElement = document.getElementById('phonebook');
-const personElement = document.getElementById('person');
-const phoneElement = document.getElementById('phone');
+const list = document.getElementById('phonebook')
+const personInput = document.getElementById('person')
+const phoneInput = document.getElementById('phone')
 
 attachEvents();
 
 async function onDelete(event) {
-    const id = event.target.dataset.id;
+    const id = event.target.dataset.id
     if (id !== undefined) {
-        await deleteContact(id);
+        await deleteContact(id)
         event.target.parentElement.remove()
     }
 }
 
 async function onCreate() {
-    const person = personElement.value;
-    const phone = phoneElement.value;
+    const person = personInput.value;
+    const phone = phoneInput.value;
+
     const contact = {person, phone}
 
-    const result = await createContact(contact);
+    const result = await createContact(contact)
 
-    phonebookElement.appendChild(createItem(result));
+    list.appendChild(createItem(result))
+
 }
 
 async function loadContacts() {
+    const url = `http://localhost:3030/jsonstore/phonebook`
+    const response = await fetch(url)
+    const data = await response.json()
 
-    const res = await fetch('http://localhost:3030/jsonstore/phonebook');
-    const data = await res.json();
+    list.replaceChildren()
 
-    phonebookElement.textContent = ''
-
-    Object.values(data).map(createItem).forEach(i => phonebookElement.appendChild(i))
+    Object.values(data).map(createItem).forEach(i => list.appendChild(i))
 }
 
 function createItem(contact) {
-    const liElement = document.createElement('li');
+    const liElement = document.createElement('li')
     liElement.innerHTML = `${contact.person}: ${contact.phone} <button data-id="${contact._id}">Delete</button>`
 
-    return liElement;
+    return liElement
 }
 
 async function createContact(contact) {
-    const res = await fetch('http://localhost:3030/jsonstore/phonebook', {
-        method: 'post',
+    const url = `http://localhost:3030/jsonstore/phonebook`
+    const options = {
+        method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(contact)
-    });
-    const result = await res.json();
+    }
+    const response = await fetch(url, options)
+    const data = response.json()
 
-    return result;
+    return data
 }
 
 async function deleteContact(id) {
-    const res = await fetch('http://localhost:3030/jsonstore/phonebook/' + id, {
-        method: 'delete',
-    });
-    const result = await res.json();
+    const url = `http://localhost:3030/jsonstore/phonebook/` + id
+    const response = await fetch(url, {
+        method: 'delete'
+    })
+    const data = response.json()
 
-    return result;
+    return data
+    
 }
