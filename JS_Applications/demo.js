@@ -1,4 +1,15 @@
-import {sumNumbers, numberProduct} from "./module.js";
+function printObject(obj) {
+    for (const objElement of Object.entries(obj)) {
+        console.log(`${objElement[0]} -> ${objElement[1]}`)
+    }
+}
 
-console.log(sumNumbers(5, 1))
-console.log(numberProduct(6, 4))
+
+
+let obj = {
+    name: 'Jorko',
+    age: 44,
+    lastName: 'Jorkov'
+}
+
+printObject(obj)
