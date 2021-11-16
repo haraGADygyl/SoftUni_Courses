@@ -1,0 +1,20 @@
+[
+    {
+        "title": "First Article",
+        "content": "Test na Jorko",
+        "author": "Jorko Jorkov"
+    },
+
+    {
+        "title": "Second Article",
+        "content": "Test na Ivan",
+        "author": "Ivan Ivanov"
+    },
+
+    {
+        "title": "Third Article",
+        "content": "Test na Gosho",
+        "author": "Gosho Goshev"
+    }
+
+]

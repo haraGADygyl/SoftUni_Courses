@@ -1,6 +1,6 @@
 async function request(url, options) {
     const response = await fetch(url, options);
-    if (response.ok != true) {
+    if (response.ok !== true) {
         const error = await response.json();
         alert(error.message);
         throw new Error(error.message);
@@ -39,7 +39,7 @@ async function createBook(event) {
         author: formData.get('author')
     };
 
-    if (book.title == '' || book.author == '') {
+    if (book.title === '' || book.author === '') {
         return alert('All fields are required!');
     }
 
@@ -62,7 +62,7 @@ async function updateBook(event) {
         author: formData.get('author')
     };
 
-    if (book.title == '' || book.author == '') {
+    if (book.title === '' || book.author === '') {
         return alert('All fields are required!');
     }
 
@@ -86,12 +86,12 @@ async function deleteBook(id) {
 
 // detect user clicks on Edit/Delete buttons
 function handleTableClick(event) {
-    if (event.target.className == 'editBtn') {
+    if (event.target.className === 'editBtn') {
         document.getElementById('createForm').style.display = 'none';
         document.getElementById('editForm').style.display = 'block';
         const bookId = event.target.parentNode.parentNode.dataset.id;
         loadBookForEditting(bookId);
-    } else if (event.target.className == 'deleteBtn') {
+    } else if (event.target.className === 'deleteBtn') {
         const confirmed = confirm('Are you sure you want to delete this book?');
         if (confirmed) {
             const bookId = event.target.parentNode.parentNode.dataset.id;
