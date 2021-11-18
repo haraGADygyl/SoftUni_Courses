@@ -16,7 +16,6 @@ const contactTemplate = (data) => html`
             </div>
         </div>`
 
-
 start()
 
 function start() {
@@ -33,13 +32,10 @@ function start() {
             } else {
                 div.style.display = 'none'
             }
-
         }
-
     }
 
     onRender()
-
 
     function onRender() {
         render(contacts.map(c => contactTemplate(c)), container)
