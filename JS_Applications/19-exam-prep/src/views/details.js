@@ -1,4 +1,4 @@
-import {html} from '../lib.js'
+import {html} from '../lib.js';
 import {deleteById, getMemeById} from "../api/data.js";
 import {getUserData} from "../util.js";
 
@@ -18,23 +18,23 @@ const detailsTemplate = (meme, isOwner, onDelete) => html`
             
         </div>
     </div>
-</section>`
+</section>`;
 
 export async function detailsPage(ctx) {
-    const meme = await getMemeById(ctx.params.id)
+    const meme = await getMemeById(ctx.params.id);
 
-    const userData = getUserData()
+    const userData = getUserData();
 
-    const isOwner = userData && meme._ownerId === userData.id
+    const isOwner = userData && meme._ownerId === userData.id;
 
-    ctx.render(detailsTemplate(meme, isOwner, onDelete))
+    ctx.render(detailsTemplate(meme, isOwner, onDelete));
 
     async function onDelete() {
-        const choice = confirm("Are you sure you want to delete this?")
+        const choice = confirm("Are you sure you want to delete this?");
 
         if (choice) {
-            await deleteById(ctx.params.id)
-            ctx.page.redirect('/memes')
+            await deleteById(ctx.params.id);
+            ctx.page.redirect('/memes');
         }
     }
 }

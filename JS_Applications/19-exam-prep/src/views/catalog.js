@@ -1,4 +1,4 @@
-import {html} from '../lib.js'
+import {html} from '../lib.js';
 import {getAllMemes} from "../api/data.js";
 
 const catalogTemplate = (memes) => html`
@@ -9,7 +9,7 @@ const catalogTemplate = (memes) => html`
                 ? html`<p class="no-memes">No memes in database.</p>` 
                 : memes.map(m => memeCard(m))}
     </div>
-</section>`
+</section>`;
 
 const memeCard = (meme) => html`
 <div class="meme">
@@ -22,9 +22,9 @@ const memeCard = (meme) => html`
             <a class="button" href="/details/${meme._id}">Details</a>
         </div>
     </div>
-</div>`
+</div>`;
 
 export async function catalogPage(ctx) {
-    const memes = await getAllMemes()
-    ctx.render(catalogTemplate(memes))
+    const memes = await getAllMemes();
+    ctx.render(catalogTemplate(memes));
 }

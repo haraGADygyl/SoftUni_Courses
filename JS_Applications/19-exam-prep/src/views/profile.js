@@ -1,4 +1,4 @@
-import {html} from '../lib.js'
+import {html} from '../lib.js';
 import {getMyMemes} from "../api/data.js";
 import {getUserData} from "../util.js";
 
@@ -17,18 +17,18 @@ const profileTemplate = (memes, userData) => html`
         ${memes.length === 0 ? html`<p class="no-memes">No memes in database.</p>` : memes.map(memeCard)}
         
     </div>
-</section>`
+</section>`;
 
 const memeCard = (meme) => html`
 <div class="user-meme">
     <p class="user-meme-title">${meme.title}</p>
     <img class="userProfileImage" alt="meme-img" src=${meme.imageUrl}>
     <a class="button" href="/details/${meme._id}">Details</a>
-</div>`
+</div>`;
 
 export async function profilePage(ctx) {
-    const userData = getUserData()
+    const userData = getUserData();
 
-    const memes = await getMyMemes(userData.id)
-    ctx.render(profileTemplate(memes, userData))
+    const memes = await getMyMemes(userData.id);
+    ctx.render(profileTemplate(memes, userData));
 }

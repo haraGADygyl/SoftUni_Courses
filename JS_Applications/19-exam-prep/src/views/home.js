@@ -1,4 +1,4 @@
-import {html} from '../lib.js'
+import {html} from '../lib.js';
 import {getUserData} from "../util.js";
 
 const homeTemplate = () => html`
@@ -12,14 +12,14 @@ const homeTemplate = () => html`
             <a href="/register" class="button">Register</a>
         </div>
     </div>
-</section>`
+</section>`;
 
 export function homePage(ctx) {
-    const userData = getUserData()
+    const userData = getUserData();
 
     if (userData) {
-        ctx.page.redirect('/memes')
+        ctx.page.redirect('/memes');
     } else {
-        ctx.render(homeTemplate())
+        ctx.render(homeTemplate());
     }
 }

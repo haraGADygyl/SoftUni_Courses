@@ -1,4 +1,4 @@
-import {html} from '../lib.js'
+import {html} from '../lib.js';
 import {createMeme} from "../api/data.js";
 
 const createTemplate = (onSubmit) => html`
@@ -15,30 +15,30 @@ const createTemplate = (onSubmit) => html`
             <input type="submit" class="registerbtn button" value="Create Meme">
         </div>
     </form>
-</section>`
+</section>`;
 
 export function createPage(ctx) {
-    ctx.render(createTemplate(onSubmit))
+    ctx.render(createTemplate(onSubmit));
 
     async function onSubmit(event) {
-        event.preventDefault()
+        event.preventDefault();
 
-        const formData = new FormData(event.target)
+        const formData = new FormData(event.target);
 
-        const title = formData.get('title')
-        const description = formData.get('description')
-        const imageUrl = formData.get('imageUrl')
+        const title = formData.get('title');
+        const description = formData.get('description');
+        const imageUrl = formData.get('imageUrl');
 
         if (title === '' || description === '' || imageUrl === '') {
-            return alert('All fields are required!')
+            return alert('All fields are required!');
         }
 
         await createMeme({
             title,
             description,
             imageUrl
-        })
+        });
 
-        ctx.page.redirect('/memes')
+        ctx.page.redirect('/memes');
     }
 }

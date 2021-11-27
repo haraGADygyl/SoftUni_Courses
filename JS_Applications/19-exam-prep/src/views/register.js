@@ -1,4 +1,4 @@
-import {html} from '../lib.js'
+import {html} from '../lib.js';
 import {register} from "../api/data.js";
 
 const registerTemplate = (onSubmit) => html`
@@ -26,32 +26,32 @@ const registerTemplate = (onSubmit) => html`
             </div>
         </div>
     </form>
-</section>`
+</section>`;
 
 export function registerPage(ctx) {
-    ctx.render(registerTemplate(onSubmit))
+    ctx.render(registerTemplate(onSubmit));
 
     async function onSubmit(event) {
-        event.preventDefault()
+        event.preventDefault();
 
-        const formData = new FormData(event.target)
-        const username = formData.get('username')
-        const email = formData.get('email')
-        const password = formData.get('password')
-        const repeatPass = formData.get('repeatPass')
-        const gender = formData.get('gender')
+        const formData = new FormData(event.target);
+        const username = formData.get('username');
+        const email = formData.get('email');
+        const password = formData.get('password');
+        const repeatPass = formData.get('repeatPass');
+        const gender = formData.get('gender');
 
         if (username === '' || email === '' || password === '' || gender === '') {
-            return alert('All fields are required')
+            return alert('All fields are required');
         }
 
         if (password !== repeatPass) {
-            return alert('Password does not match')
+            return alert('Password does not match');
         }
 
-        await register(username, email, password, gender)
-        ctx.updateUserNav()
-        ctx.page.redirect('/memes')
+        await register(username, email, password, gender);
+        ctx.updateUserNav();
+        ctx.page.redirect('/memes');
     }
 }
 
