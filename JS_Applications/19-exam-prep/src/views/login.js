@@ -28,6 +28,10 @@ export function loginPage(ctx) {
         const email = formData.get('email')
         const password = formData.get('password')
 
+        if (email === '' || password === '') {
+            return alert('All fields are required')
+        }
+
         await login(email, password)
         ctx.updateUserNav()
         ctx.page.redirect('/memes')

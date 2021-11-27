@@ -12,7 +12,7 @@ async function request(url, options) {
         }
 
         try {
-            return response.json()
+            return await response.json()
         } catch(err) {
             return response
         }
@@ -40,7 +40,6 @@ function createOptions(method = 'get', data) {
     }
 
     return options
-
 }
 
 export async function get(url) {

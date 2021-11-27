@@ -1,24 +1,25 @@
 import {html} from '../lib.js'
-import {createMeme} from "../api/data.js";
+import {editMeme, getMemeById} from "../api/data.js";
 
-const createTemplate = (onSubmit) => html`
-<section id="create-meme">
-    <form @submit=${onSubmit} id="create-form">
+const editTemplate = (meme, onSubmit) => html`
+<section id="edit-meme">
+    <form @submit=${onSubmit} id="edit-form">
+        <h1>Edit Meme</h1>
         <div class="container">
-            <h1>Create Meme</h1>
             <label for="title">Title</label>
-            <input id="title" type="text" placeholder="Enter Title" name="title">
+            <input id="title" type="text" placeholder="Enter Title" name="title" .value=${meme.title}>
             <label for="description">Description</label>
-            <textarea id="description" placeholder="Enter Description" name="description"></textarea>
-            <label for="imageUrl">Meme Image</label>
-            <input id="imageUrl" type="text" placeholder="Enter meme ImageUrl" name="imageUrl">
-            <input type="submit" class="registerbtn button" value="Create Meme">
+            <textarea id="description" placeholder="Enter Description" name="description" .value=${meme.description}></textarea>
+            <label for="imageUrl">Image Url</label>
+            <input id="imageUrl" type="text" placeholder="Enter Meme ImageUrl" name="imageUrl" .value=${meme.imageUrl}>
+            <input type="submit" class="registerbtn button" value="Edit Meme">
         </div>
     </form>
 </section>`
 
-export function createPage(ctx) {
-    ctx.render(createTemplate(onSubmit))
+export async function editPage(ctx) {
+    const meme = await getMemeById(ctx.params.id);
+    ctx.render(editTemplate(meme, onSubmit))
 
     async function onSubmit(event) {
         event.preventDefault()
@@ -33,7 +34,7 @@ export function createPage(ctx) {
             return alert('All fields are required!')
         }
 
-        await createMeme({
+        await editMeme(ctx.params.id, {
             title,
             description,
             imageUrl
