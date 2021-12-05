@@ -34,3 +34,4 @@ export async function profilePage(ctx) {
 
     ctx.render(profileTemplate(memes, userData))
 }
+
