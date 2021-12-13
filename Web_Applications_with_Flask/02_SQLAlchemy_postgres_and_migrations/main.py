@@ -16,9 +16,21 @@ class BookModel(db.Model):
     pk = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), nullable=False)
     author = db.Column(db.String(255), nullable=False)
+    reader_pk = db.Column(db.Integer, db.ForeignKey('readers.pk'))
 
     def __str__(self):
         return f'pk: {self.pk} Title: {self.title} Author: {self.author}'
+
+    def serialize(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+
+class ReaderModel(db.Model):
+    __tablename__ = 'readers'
+
+    pk = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String(255), nullable=False)
+    last_name = db.Column(db.String(255), nullable=False)
 
     def serialize(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
@@ -42,4 +54,3 @@ db.create_all()
 
 if __name__ == '__main__':
     app.run()
-
