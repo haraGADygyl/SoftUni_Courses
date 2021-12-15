@@ -1,9 +1,9 @@
 import enum
 
 from decouple import config
-from flask import Flask
+from flask import Flask, request
 from flask_migrate import Migrate
-from flask_restful import Api
+from flask_restful import Api, Resource
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
 
@@ -62,6 +62,13 @@ class Clothes(db.Model):
     photo = db.Column(db.String(255), nullable=False)
     create_on = db.Column(db.DateTime, server_default=func.now())
     updated_on = db.Column(db.DateTime, onupdate=func.now())
+
+class SighUp(Resource):
+    def post(self):
+        data = request.get_json()
+        user = User(**data)
+        db.session.add(user)
+        db.session.commit()
 
 
 if __name__ == "__main__":
