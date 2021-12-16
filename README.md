@@ -1,17 +1,17 @@
 ## My solutions to the problems in the following [SoftUni](https://softuni.bg) courses:
 
 - ### Python Programming Basics October 2020
-  ![Certificate](https://softuni.bg/certificates/details/91804/524c55bc "Certificate Python Programming Basics")
+  Score: 6.00 / 6.00 - [Sertificate](https://softuni.bg/certificates/details/91804/524c55bc)
 - ### Python Fundamentals January 2021
-  ![Certificate](https://softuni.bg/certificates/details/102913/48352827 "Certificate Python Fundamental")
+  Score: 6.00 / 6.00 - [Certificate](https://softuni.bg/certificates/details/102913/48352827)
 - ### Python Advanced May 2021
-  ![Certificate](https://softuni.bg/certificates/details/108339/5c280629 "Certificate Python Advanced")
+  Score: 6.00 / 6.00 - [Certificate](https://softuni.bg/certificates/details/108339/5c280629)
 - ### Python OOP June 2021
-  ![Certificate](https://softuni.bg/certificates/details/110533/a27c4f51 "Certificate Python OOP")
+  Score: 5.96 / 6.00 - [Certificate](https://softuni.bg/certificates/details/110533/a27c4f51)
 - ### JavaScript Advanced September 2021
-  ![Certificate](https://softuni.bg/certificates/details/114715/73b62dc3 "Certificate JS Advanced")
+  Score: 5.84 / 6.00 - [Certificate](https://softuni.bg/certificates/details/114715/73b62dc3)
 - ### JavaScript Applications October 2021
-  ![Certificate](https://softuni.bg/certificates/details/120818/68cf6cd6 "Certificate JS Applications")
+  Score: 6.00 / 6.00 - [Certificate](https://softuni.bg/certificates/details/120818/68cf6cd6)
 
 ## Topics covered in each course:
 
