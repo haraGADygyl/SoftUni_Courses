@@ -1,16 +1,17 @@
 ## My solutions to the problems in the following [SoftUni](https://softuni.bg) courses:
 
 - ### Python Programming Basics October 2020
-  ![Certificate](https://softuni.bg/certificates/certificates/converttoimage/91804?code=524c55bc "Certificate Python Programming Basics")
+  ![Certificate](https://softuni.bg/certificates/details/91804/524c55bc "Certificate Python Programming Basics")
 - ### Python Fundamentals January 2021
-  ![Certificate](https://softuni.bg/certificates/certificates/converttoimage/102913?code=48352827 "Certificate Python Fundamental")
+  ![Certificate](https://softuni.bg/certificates/details/102913/48352827 "Certificate Python Fundamental")
 - ### Python Advanced May 2021
-  ![Certificate](https://softuni.bg/certificates/certificates/converttoimage/108339?code=5c280629 "Certificate Python Advanced")
+  ![Certificate](https://softuni.bg/certificates/details/108339/5c280629 "Certificate Python Advanced")
 - ### Python OOP June 2021
-  ![Certificate](https://softuni.bg/certificates/certificates/converttoimage/110533?code=a27c4f51 "Certificate Python OOP")
+  ![Certificate](https://softuni.bg/certificates/details/110533/a27c4f51 "Certificate Python OOP")
 - ### JavaScript Advanced September 2021
-  ![Certificate](https://softuni.bg/certificates/certificates/converttoimage/114715?code=73b62dc3 "Certificate JS Advanced")
-
+  ![Certificate](https://softuni.bg/certificates/details/114715/73b62dc3 "Certificate JS Advanced")
+- ### JavaScript Applications October 2021
+  ![Certificate](https://softuni.bg/certificates/details/120818/68cf6cd6 "Certificate JS Applications")
 
 ## Topics covered in each course:
 
