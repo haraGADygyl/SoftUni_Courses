@@ -41,16 +41,19 @@ class ReaderModel(db.Model):
 
 
 class Books(Resource):
-    def get(self):
+    @staticmethod
+    def get():
         books = BookModel.query.all()
         return {'books': [b.serialize() for b in books]}
 
-    def post(self):
+    @staticmethod
+    def post():
         data = request.get_json()
         book = BookModel(**data)
         db.session.add(book)
         db.session.commit()
         return {'message': 'created'}, 201
+
 
 class Readers(Resource):
     def get(self):
