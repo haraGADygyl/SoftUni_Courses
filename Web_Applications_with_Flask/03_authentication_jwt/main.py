@@ -6,7 +6,8 @@ from flask_migrate import Migrate
 from flask_restful import Api, Resource
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
-
+from marshmallow import Schema, fields
+from werkzeug.exceptions import BadRequest
 
 app = Flask(__name__)
 
@@ -63,13 +64,28 @@ class Clothes(db.Model):
     create_on = db.Column(db.DateTime, server_default=func.now())
     updated_on = db.Column(db.DateTime, onupdate=func.now())
 
-class SighUp(Resource):
-    def post(self):
-        data = request.get_json()
-        user = User(**data)
-        db.session.add(user)
-        db.session.commit()
 
+class UserSignInSchema(Schema):
+    email = fields.Email()
+    password = fields.String()
+    full_name = fields.String()
+
+
+class SighUp(Resource):
+    @staticmethod
+    def post():
+        data = request.get_json()
+        schema = UserSignInSchema()
+        errors = schema.validate(data)
+        if not errors:
+            user = User(**data)
+            db.session.add(user)
+            db.session.commit()
+            return {'message': 'ok'}, 201
+        raise BadRequest('Invalid data')
+
+
+api.add_resource(SighUp, '/register')
 
 if __name__ == "__main__":
     db.create_all()
