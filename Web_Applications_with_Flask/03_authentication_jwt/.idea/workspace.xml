@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fbb78e49-47fe-43d7-89de-f95bedb8f57a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/40f10414-4353-4ba2-8c35-a994ff2deb27.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/40f10414-4353-4ba2-8c35-a994ff2deb27/storage_v2/_src_/database/clothes.SMymMw/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/40f10414-4353-4ba2-8c35-a994ff2deb27/storage_v2/_src_/database/clothes.SMymMw/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/40f10414-4353-4ba2-8c35-a994ff2deb27/storage_v2/_src_/database/clothes.SMymMw/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/40f10414-4353-4ba2-8c35-a994ff2deb27/storage_v2/_src_/database/clothes.SMymMw/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/40f10414-4353-4ba2-8c35-a994ff2deb27/storage_v2/_src_/database/clothes.SMymMw/schema/public.abK9xQ.meta" beforeDir="false" />
+    <list default="true" id="fbb78e49-47fe-43d7-89de-f95bedb8f57a" name="Changes" comment="Flask">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -75,14 +69,55 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1639917585135</updated>
-      <workItem from="1639917586322" duration="837000" />
+      <workItem from="1639917586322" duration="5800000" />
     </task>
+    <task id="LOCAL-00001" summary="Flask">
+      <created>1639942831911</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1639942831911</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Flask">
+      <created>1639942852348</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1639942852348</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Flask" />
+    <option name="LAST_COMMIT_MESSAGE" value="Flask" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>94</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/03_authentication_jwt$03_authentication_jwt.coverage" NAME="03_authentication_jwt Coverage Results" MODIFIED="1639917762205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/03_authentication_jwt$03_authentication_jwt.coverage" NAME="03_authentication_jwt Coverage Results" MODIFIED="1639948101042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

@@ -1,4 +1,7 @@
 import enum
+from datetime import datetime, timedelta
+
+import jwt
 
 from decouple import config
 from flask import Flask, request
@@ -6,8 +9,9 @@ from flask_migrate import Migrate
 from flask_restful import Api, Resource
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
-from marshmallow import Schema, fields
+from marshmallow import Schema, fields, validate, ValidationError
 from werkzeug.exceptions import BadRequest
+from werkzeug.security import generate_password_hash
 
 app = Flask(__name__)
 
@@ -29,6 +33,13 @@ class User(db.Model):
     phone = db.Column(db.Text)
     create_on = db.Column(db.DateTime, server_default=func.now())
     updated_on = db.Column(db.DateTime, onupdate=func.now())
+
+    def encode_token(self):
+        payload = {
+            'exp': datetime.utcnow() + timedelta(days=2),
+            'sub': self.id
+        }
+        return jwt.encode(payload, key=config('JWT_KEY'), algorithm='HS256')
 
 
 class ColorEnum(enum.Enum):
@@ -65,24 +76,39 @@ class Clothes(db.Model):
     updated_on = db.Column(db.DateTime, onupdate=func.now())
 
 
-class UserSignInSchema(Schema):
+def validate_full_name(value):
+    try:
+        first_name, last_name = value.split()
+    except:
+        raise ValidationError('Full name must contain first and last names')
+
+
+class UserSignUpSchema(Schema):
     email = fields.Email()
     password = fields.String()
-    full_name = fields.String()
+    full_name = fields.String(required=True, validate=validate.And(validate.Length(min=2, max=255), validate_full_name))
 
 
 class SighUp(Resource):
     @staticmethod
     def post():
         data = request.get_json()
-        schema = UserSignInSchema()
+        schema = UserSignUpSchema()
         errors = schema.validate(data)
         if not errors:
-            user = User(**data)
-            db.session.add(user)
-            db.session.commit()
-            return {'message': 'ok'}, 201
-        raise BadRequest('Invalid data')
+            try:
+                data['password'] = generate_password_hash(password=data['password'], method='sha256')
+                user = User(**data)
+                db.session.add(user)
+                db.session.commit()
+            except Exception as ex:
+                if 'UniqueViolation' in str(ex):
+                    raise BadRequest('This email is already in use')
+                raise BadRequest('Invalid data')
+
+            token = user.encode_token()
+            return {'token': token}, 201
+        raise BadRequest(f'Invalid data fields - {", ".join(errors)}')
 
 
 api.add_resource(SighUp, '/register')
