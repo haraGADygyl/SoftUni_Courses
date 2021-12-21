@@ -2,5 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/04_clean_code-demo_app_part_1/flask-demo-feproject" vcs="Git" />
   </component>
 </project>
