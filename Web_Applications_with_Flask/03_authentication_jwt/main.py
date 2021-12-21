@@ -12,6 +12,8 @@ from sqlalchemy import func
 from marshmallow import Schema, fields, validate, ValidationError
 from werkzeug.exceptions import BadRequest
 from werkzeug.security import generate_password_hash
+from marshmallow_enum import EnumField
+from flask_httpauth import HTTPTokenAuth
 
 app = Flask(__name__)
 
@@ -24,6 +26,23 @@ db = SQLAlchemy(app)
 api = Api(app)
 migrate = Migrate(app, db)
 
+auth = HTTPTokenAuth(scheme='Bearer')
+
+
+@auth.verify_token
+def verify_token(token):
+    try:
+        user_id = User.decode_token(token)
+        return User.query.filter_by(id=user_id).first()
+    except Exception as ex:
+        raise ex
+
+
+class UserRolesEnum(enum.Enum):
+    super_admin = 'super_admin'
+    admin = 'admin'
+    user = 'user'
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -31,6 +50,7 @@ class User(db.Model):
     password = db.Column(db.String(255), nullable=False)
     full_name = db.Column(db.String(255), nullable=False)
     phone = db.Column(db.Text)
+    role = db.Column(db.Enum(UserRolesEnum), default=UserRolesEnum.user)
     create_on = db.Column(db.DateTime, server_default=func.now())
     updated_on = db.Column(db.DateTime, onupdate=func.now())
 
@@ -40,6 +60,16 @@ class User(db.Model):
             'sub': self.id
         }
         return jwt.encode(payload, key=config('JWT_KEY'), algorithm='HS256')
+
+    @staticmethod
+    def decode_token(token):
+        try:
+            data = jwt.decode(token, key=config('JWT_KEY'), algorithms=['HS256'])
+            return data['sub']
+        except jwt.InvalidTokenError:
+            raise BadRequest('Invalid token')
+        except jwt.ExpiredSignatureError:
+            raise BadRequest('Token expired')
 
 
 class ColorEnum(enum.Enum):
@@ -111,7 +141,27 @@ class SighUp(Resource):
         raise BadRequest(f'Invalid data fields - {", ".join(errors)}')
 
 
+class ClothesOutSchema(Schema):
+    id = fields.Integer()
+    name = fields.String()
+    color = EnumField(ColorEnum)
+    size = EnumField(SizeEnum)
+    photo = fields.String()
+    created_on = fields.DateTime()
+    updated_on = fields.DateTime()
+
+
+class ClothesResource(Resource):
+    @auth.login_required
+    def get(self):
+        clothes = Clothes.query.all()
+        schema = ClothesOutSchema()
+        clothes = schema.dump(clothes, many=True)
+        return {'clothes': clothes}
+
+
 api.add_resource(SighUp, '/register')
+api.add_resource(ClothesResource, '/clothes')
 
 if __name__ == "__main__":
     db.create_all()
