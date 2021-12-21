@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fbb78e49-47fe-43d7-89de-f95bedb8f57a" name="Changes" comment="Flask">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/7880d85a18f5_initial_migration.py" beforeDir="false" />
-    </list>
+    <list default="true" id="fbb78e49-47fe-43d7-89de-f95bedb8f57a" name="Changes" comment="Flask" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1639917585135</updated>
       <workItem from="1639917586322" duration="8109000" />
-      <workItem from="1640077891873" duration="5083000" />
+      <workItem from="1640077891873" duration="5772000" />
     </task>
     <task id="LOCAL-00001" summary="Flask">
       <created>1639942831911</created>
@@ -120,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640080291715</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Flask">
+      <created>1640089694186</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1640089694186</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,7 +149,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>180</line>
+          <line>183</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
