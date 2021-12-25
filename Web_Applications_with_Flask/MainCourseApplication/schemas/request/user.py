@@ -6,6 +6,10 @@ class BaseUserSchema(Schema):
     password = fields.String(required=True, validate=validate.Length(min=6, max=255))
 
 
+class ComplainerLoginRequestSchema(BaseUserSchema):
+    pass
+
+
 class ComplainerRegisterRequestSchema(BaseUserSchema):
     first_name = fields.String(required=True, validate=validate.Length(min=2, max=255))
     last_name = fields.String(required=True, validate=validate.Length(min=2, max=255))
