@@ -21,7 +21,7 @@ class ListCreateComplaint(Resource):
     @validate_schema(ComplaintCreateRequestSchema)
     def post(self):
         current_user = auth.current_user()
-        complaint = ComplaintManager.create(request.get_json(), current_user.id)
+        complaint = ComplaintManager.create(request.get_json(), current_user)
         schema = ComplaintCreateResponseSchema()
         return schema.dump(complaint)
 
@@ -37,7 +37,7 @@ class ComplaintDetail(Resource):
         return schema.dump(updated_complaint)
 
     @auth.login_required
-    # @permission_required(RoleType.administrator)
+    @permission_required(RoleType.administrator)
     def delete(self, id_):
         ComplaintManager.delete(id_)
         return {"message": "Success"}, 204
