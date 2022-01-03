@@ -10,7 +10,7 @@ def validate_schema(schema_name):
             errors = schema.validate(data)
 
             if errors:
-                raise BadRequest("lqlq")
+                raise BadRequest(errors)
 
             return func(*args, **kwargs)
 
