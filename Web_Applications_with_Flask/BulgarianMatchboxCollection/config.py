@@ -11,7 +11,6 @@ class DevelopmentConfig:
 
 
 class ProductionConfig:
-    FLASK_ENV = "production"
     DEBUG = False
     TESTING = False
     SQLALCHEMY_DATABASE_URI = (

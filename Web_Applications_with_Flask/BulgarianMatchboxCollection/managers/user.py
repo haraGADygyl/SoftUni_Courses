@@ -18,7 +18,9 @@ class UserManager:
             if e.orig.pgcode == UNIQUE_VIOLATION:
                 raise BadRequest("Please login")
             else:
-                raise InternalServerError("Server is unavailable at the moment. Please try again later.")
+                raise InternalServerError(
+                    "Server is unavailable at the moment. Please try again later."
+                )
 
         return user
 

@@ -18,5 +18,5 @@ api = Api(app)
 [api.add_resource(*r) for r in routes]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run()
