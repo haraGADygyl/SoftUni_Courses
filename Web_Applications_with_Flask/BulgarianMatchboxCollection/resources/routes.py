@@ -1,8 +1,10 @@
-from resources.auth import Register, Login
+from resources.auth import Register, Login, LoginAdministrator, RegisterAdministrator
 from resources.car import ListCreateCar
 
 routes = (
     (Register, "/register"),
     (Login, "/login"),
-    (ListCreateCar, "/create"),
+    (RegisterAdministrator, "/register_admin"),
+    (LoginAdministrator, "/login_admin"),
+    (ListCreateCar, "/car"),
 )

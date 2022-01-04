@@ -21,3 +21,15 @@ class ListCreateCar(Resource):
         car = CarManager.create(request.get_json(), current_user.pk)
         schema = CarCreateResponseSchema()
         return schema.dump(car)
+
+    @auth.login_required
+    @permission_required(RoleType.administrator)
+    @validate_schema(CarCreateRequestSchema)
+    def put(self, pk):
+        updated_car = CarManager.update(request.get_json(), pk)
+        schema = CarCreateResponseSchema()
+        return schema.dump(updated_car)
+
+    def delete(self, pk):
+        pass
+

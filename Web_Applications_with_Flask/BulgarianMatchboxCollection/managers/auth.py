@@ -8,6 +8,9 @@ from werkzeug.exceptions import BadRequest
 from models.user import UserModel, AdministratorModel
 
 
+dummy = [UserModel, AdministratorModel]
+
+
 class AuthManager:
     @staticmethod
     def encode_token(user):
