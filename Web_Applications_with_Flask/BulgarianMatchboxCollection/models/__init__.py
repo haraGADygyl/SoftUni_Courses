@@ -1,2 +1,2 @@
-from models.user import *
 from models.car import *
+from models.user import *

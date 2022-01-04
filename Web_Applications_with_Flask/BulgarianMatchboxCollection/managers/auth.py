@@ -7,7 +7,6 @@ from werkzeug.exceptions import BadRequest
 
 from models.user import UserModel, AdministratorModel
 
-
 dummy = [UserModel, AdministratorModel]
 
 

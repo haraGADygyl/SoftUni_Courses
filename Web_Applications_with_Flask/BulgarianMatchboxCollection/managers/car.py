@@ -4,6 +4,14 @@ from db import db
 from models.car import CarModel
 
 
+def query_car_by_pk(pk):
+    car_q = CarModel.query.filter_by(pk=pk)
+    car = car_q.first()
+    if not car:
+        raise NotFound("This car does not exist")
+    return car_q
+
+
 class CarManager:
     @staticmethod
     def get_all():
@@ -11,12 +19,8 @@ class CarManager:
 
     @staticmethod
     def get(pk):
-        car_q = CarModel.query.filter_by(pk=pk)
-        car = car_q.first()
-        if not car:
-            raise NotFound("This car does not exist")
-
-        return car
+        car = query_car_by_pk(pk)
+        return car.first()
 
     @staticmethod
     def create(car_data, user_pk):
@@ -28,22 +32,14 @@ class CarManager:
 
     @staticmethod
     def update(car_data, pk):
-        car_q = CarModel.query.filter_by(pk=pk)
-        car = car_q.first()
-        if not car:
-            raise NotFound("This car does not exist")
-
-        car_q.update(car_data)
-        db.session.add(car)
+        car = query_car_by_pk(pk)
+        car.update(car_data)
+        db.session.add(car.first())
         db.session.commit()
-        return car
+        return car.first()
 
     @staticmethod
     def delete(pk):
-        car_q = CarModel.query.filter_by(pk=pk)
-        car = car_q.first()
-        if not car:
-            raise NotFound("This car does not exist")
-
-        db.session.delete(car)
+        car = query_car_by_pk(pk)
+        db.session.delete(car.first())
         db.session.commit()

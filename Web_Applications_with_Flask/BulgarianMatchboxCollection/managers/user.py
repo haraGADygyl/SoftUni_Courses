@@ -57,7 +57,9 @@ class AdministratorManager:
 
     @staticmethod
     def login_administrator(admin_data):
-        administrator = AdministratorModel.query.filter_by(email=admin_data["email"]).first()
+        administrator = AdministratorModel.query.filter_by(
+            email=admin_data["email"]
+        ).first()
 
         if not administrator:
             raise BadRequest("Wrong email or password, please try again!")

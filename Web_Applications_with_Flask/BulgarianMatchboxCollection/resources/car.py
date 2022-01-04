@@ -9,13 +9,7 @@ from schemas.response.car import CarCreateResponseSchema
 from util.decorators import validate_schema, permission_required
 
 
-class ListCreateCar(Resource):
-    @staticmethod
-    def get():
-        cars = CarManager.get_all()
-        schema = CarCreateResponseSchema()
-        return schema.dump(cars, many=True)
-
+class CreateCar(Resource):
     @auth.login_required
     @permission_required(RoleType.user)
     @validate_schema(CarCreateRequestSchema)
@@ -26,12 +20,23 @@ class ListCreateCar(Resource):
         return schema.dump(car), 201
 
 
-class EditDeleteCar(Resource):
-    def get(self, pk):
+class GetAllCars(Resource):
+    @staticmethod
+    def get():
+        cars = CarManager.get_all()
+        schema = CarCreateResponseSchema()
+        return schema.dump(cars, many=True)
+
+
+class GetCarByPk(Resource):
+    @staticmethod
+    def get(pk):
         car = CarManager.get(pk)
         schema = CarCreateResponseSchema()
         return schema.dump(car)
 
+
+class EditCar(Resource):
     @auth.login_required
     @permission_required(RoleType.administrator)
     @validate_schema(CarCreateRequestSchema)
@@ -40,6 +45,8 @@ class EditDeleteCar(Resource):
         schema = CarCreateResponseSchema()
         return schema.dump(updated_car)
 
+
+class DeleteCar(Resource):
     @auth.login_required
     @permission_required(RoleType.administrator)
     def delete(self, pk):

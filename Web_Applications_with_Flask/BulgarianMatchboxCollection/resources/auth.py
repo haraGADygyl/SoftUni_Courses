@@ -3,8 +3,12 @@ from flask_restful import Resource
 
 from managers.auth import AuthManager
 from managers.user import UserManager, AdministratorManager
-from schemas.request.user import UserRegisterRequestSchema, UserLoginRequestSchema, AdministratorLoginRequestSchema, \
-    AdministratorRegisterRequestSchema
+from schemas.request.user import (
+    UserRegisterRequestSchema,
+    UserLoginRequestSchema,
+    AdministratorLoginRequestSchema,
+    AdministratorRegisterRequestSchema,
+)
 from util.decorators import validate_schema
 
 
