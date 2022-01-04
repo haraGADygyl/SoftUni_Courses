@@ -1,10 +1,8 @@
-from marshmallow import Schema, fields, validate
+from marshmallow import fields
+
+from schemas.bases import BaseCarSchema
 
 
-class CarCreateRequestSchema(Schema):
-    make = fields.String(required=True, validate=validate.Length(max=32))
-    model = fields.String(required=True, validate=validate.Length(max=32))
-    color = fields.String(required=True, validate=validate.Length(max=32))
-    interior_color = fields.String(required=True, validate=validate.Length(max=32))
-    tampo = fields.String(required=True, validate=validate.Length(max=32))
-    photo_url = fields.String(required=True, validate=validate.Length(max=255))
+class CarCreateRequestSchema(BaseCarSchema):
+    photo = fields.String(required=True)
+    photo_extension = fields.String(required=True)

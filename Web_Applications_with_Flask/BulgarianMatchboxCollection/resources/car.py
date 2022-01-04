@@ -15,7 +15,7 @@ class CreateCar(Resource):
     @validate_schema(CarCreateRequestSchema)
     def post(self):
         current_user = auth.current_user()
-        car = CarManager.create(request.get_json(), current_user.pk)
+        car = CarManager.create(request.get_json(), current_user)
         schema = CarCreateResponseSchema()
         return schema.dump(car), 201
 

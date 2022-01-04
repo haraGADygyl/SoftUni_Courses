@@ -1,7 +1,15 @@
+import os
+import uuid
+
 from werkzeug.exceptions import NotFound
 
+from constants import TEMP_FILE_FOLDER
 from db import db
 from models.car import CarModel
+from services.s3 import S3Service
+from util.helpers import decode_photo
+
+s3 = S3Service()
 
 
 def query_car_by_pk(pk):
@@ -24,7 +32,15 @@ class CarManager:
 
     @staticmethod
     def create(car_data, user_pk):
-        car_data["user_pk"] = user_pk
+        photo_name = f"{str(uuid.uuid4())}.{car_data.pop('photo_extension')}"
+        path = os.path.join(TEMP_FILE_FOLDER, photo_name)
+        decode_photo(car_data.pop("photo"), path)
+        photo_url = s3.upload_photo(path, photo_name)
+        os.remove(path)
+
+        car_data["photo_url"] = photo_url
+
+        car_data["user_pk"] = user_pk.pk
         car = CarModel(**car_data)
         db.session.add(car)
         db.session.commit()

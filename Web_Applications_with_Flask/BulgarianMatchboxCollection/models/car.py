@@ -15,4 +15,4 @@ class CarModel(db.Model):
     photo_url = db.Column(db.String(255), nullable=False)
     created_on = db.Column(db.DateTime, server_default=func.now())
     user_pk = db.Column(db.Integer, db.ForeignKey("users.pk"))
-    user = db.relationship("UserModel")  # Not sure about this
+    user = db.relationship("UserModel")
