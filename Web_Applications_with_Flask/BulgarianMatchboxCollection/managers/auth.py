@@ -27,7 +27,7 @@ class AuthManager:
             return data["sub"], data["role"]
         except jwt.ExpiredSignatureError:
             raise BadRequest("Token is expired")
-        except jwt.InvalidSignatureError:
+        except jwt.InvalidTokenError:
             raise BadRequest("Invalid token")
 
 

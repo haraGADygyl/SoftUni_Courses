@@ -1,20 +1,13 @@
-from flask import Flask
-from flask_migrate import Migrate
-from flask_restful import Api
-
-from config import DevelopmentConfig
+from config import create_my_app
 from db import db
-from resources.routes import routes
 
-app = Flask(__name__)
-app.config.from_object(DevelopmentConfig)
+app = create_my_app()
 
-db.init_app(app)
 
-migrate = Migrate(app, db)
-api = Api(app)
+@app.before_first_request
+def init_request():
 
-[api.add_resource(*r) for r in routes]
+    db.create_all()
 
 
 if __name__ == "__main__":

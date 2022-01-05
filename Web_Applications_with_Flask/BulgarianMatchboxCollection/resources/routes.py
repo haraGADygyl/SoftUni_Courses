@@ -6,9 +6,9 @@ routes = (
     (Login, "/login"),
     (RegisterAdministrator, "/register_admin"),
     (LoginAdministrator, "/login_admin"),
-    (CreateCar, "/car"),
+    (CreateCar, "/car/create"),
     (GetAllCars, "/car"),
     (GetCarByPk, "/car/<int:pk>"),
-    (EditCar, "/car/<int:pk>"),
-    (DeleteCar, "/car/<int:pk>"),
+    (EditCar, "/car/edit/<int:pk>"),
+    (DeleteCar, "/car/delete/<int:pk>"),
 )
